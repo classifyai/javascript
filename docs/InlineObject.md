@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file** | **File** |  | [optional] 
+**imageUrl** | **String** |  | 
+**tag** | **String** |  | 
+**modelId** | **String** |  | 
 
 

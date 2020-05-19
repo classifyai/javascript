@@ -54,6 +54,18 @@
       //expect(instance).to.be.a(Classify.InlineObject1);
     });
 
+    it('should have the property modelId (base name: "model_id")', function() {
+      // uncomment below and update the code to test the property modelId
+      //var instane = new Classify.InlineObject1();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tag (base name: "tag")', function() {
+      // uncomment below and update the code to test the property tag
+      //var instane = new Classify.InlineObject1();
+      //expect(instance).to.be();
+    });
+
     it('should have the property file (base name: "file")', function() {
       // uncomment below and update the code to test the property file
       //var instane = new Classify.InlineObject1();

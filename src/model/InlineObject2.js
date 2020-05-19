@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The InlineObject1 model module.
- * @module model/InlineObject1
+ * The InlineObject2 model module.
+ * @module model/InlineObject2
  * @version 1.0.0
  */
-class InlineObject1 {
+class InlineObject2 {
     /**
-     * Constructs a new <code>InlineObject1</code>.
-     * @alias module:model/InlineObject1
+     * Constructs a new <code>InlineObject2</code>.
+     * @alias module:model/InlineObject2
      */
     constructor() { 
         
-        InlineObject1.initialize(this);
+        InlineObject2.initialize(this);
     }
 
     /**
@@ -37,24 +37,21 @@ class InlineObject1 {
     }
 
     /**
-     * Constructs a <code>InlineObject1</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>InlineObject2</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/InlineObject1} obj Optional instance to populate.
-     * @return {module:model/InlineObject1} The populated <code>InlineObject1</code> instance.
+     * @param {module:model/InlineObject2} obj Optional instance to populate.
+     * @return {module:model/InlineObject2} The populated <code>InlineObject2</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new InlineObject1();
+            obj = obj || new InlineObject2();
 
-            if (data.hasOwnProperty('model_id')) {
-                obj['model_id'] = ApiClient.convertToType(data['model_id'], 'String');
-            }
-            if (data.hasOwnProperty('tag')) {
-                obj['tag'] = ApiClient.convertToType(data['tag'], 'String');
-            }
             if (data.hasOwnProperty('file')) {
                 obj['file'] = ApiClient.convertToType(data['file'], File);
+            }
+            if (data.hasOwnProperty('model_id')) {
+                obj['model_id'] = ApiClient.convertToType(data['model_id'], 'String');
             }
         }
         return obj;
@@ -64,24 +61,19 @@ class InlineObject1 {
 }
 
 /**
- * @member {String} model_id
- */
-InlineObject1.prototype['model_id'] = undefined;
-
-/**
- * @member {String} tag
- */
-InlineObject1.prototype['tag'] = undefined;
-
-/**
  * @member {File} file
  */
-InlineObject1.prototype['file'] = undefined;
+InlineObject2.prototype['file'] = undefined;
+
+/**
+ * @member {String} model_id
+ */
+InlineObject2.prototype['model_id'] = undefined;
 
 
 
 
 
 
-export default InlineObject1;
+export default InlineObject2;
 

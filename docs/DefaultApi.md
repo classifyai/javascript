@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createNewModel**](DefaultApi.md#createNewModel) | **PUT** /models | Create New Model
 [**deleteModel**](DefaultApi.md#deleteModel) | **DELETE** /models | Delete Model
 [**getModelsList**](DefaultApi.md#getModelsList) | **GET** /models | Get Models List
-[**indexByImageUrl**](DefaultApi.md#indexByImageUrl) | **GET** /index_by_image_url | Index by Using Image URL
+[**indexByImageUrl**](DefaultApi.md#indexByImageUrl) | **POST** /index_by_image_url | Index by Using Image URL
 [**indexImage**](DefaultApi.md#indexImage) | **POST** /index_image | Index Local Image
 [**tagImageByUrl**](DefaultApi.md#tagImageByUrl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 [**tagLocalImage**](DefaultApi.md#tagLocalImage) | **POST** /predict | Predict by Image
@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 ## indexByImageUrl
 
-> String indexByImageUrl(modelId, imageUrl)
+> indexByImageUrl(inlineObject)
 
 Index by Using Image URL
 
@@ -184,13 +184,12 @@ x-api-key.apiKey = 'YOUR API KEY';
 //x-api-key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Classify.DefaultApi();
-let modelId = "modelId_example"; // String | Model ID
-let imageUrl = "imageUrl_example"; // String | Image URL
-apiInstance.indexByImageUrl(modelId, imageUrl, (error, data, response) => {
+let inlineObject = new Classify.InlineObject(); // InlineObject | 
+apiInstance.indexByImageUrl(inlineObject, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -200,12 +199,11 @@ apiInstance.indexByImageUrl(modelId, imageUrl, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelId** | **String**| Model ID | 
- **imageUrl** | **String**| Image URL | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 
-**String**
+null (empty response body)
 
 ### Authorization
 
@@ -213,13 +211,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## indexImage
 
-> String indexImage(modelId, opts)
+> String indexImage(opts)
 
 Index Local Image
 
@@ -237,11 +235,12 @@ x-api-key.apiKey = 'YOUR API KEY';
 //x-api-key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Classify.DefaultApi();
-let modelId = "modelId_example"; // String | Model ID
 let opts = {
+  'modelId': "modelId_example", // String | 
+  'tag': "tag_example", // String | 
   'file': "/path/to/file" // File | 
 };
-apiInstance.indexImage(modelId, opts, (error, data, response) => {
+apiInstance.indexImage(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -255,7 +254,8 @@ apiInstance.indexImage(modelId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelId** | **String**| Model ID | 
+ **modelId** | **String**|  | [optional] 
+ **tag** | **String**|  | [optional] 
  **file** | **File**|  | [optional] 
 
 ### Return type
@@ -327,7 +327,7 @@ null (empty response body)
 
 ## tagLocalImage
 
-> tagLocalImage(modelId, opts)
+> tagLocalImage(opts)
 
 Predict by Image
 
@@ -345,11 +345,11 @@ x-api-key.apiKey = 'YOUR API KEY';
 //x-api-key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Classify.DefaultApi();
-let modelId = "modelId_example"; // String | Type your trained model id to predict. You get your model's id from Classify Dashboard.
 let opts = {
-  'file': "/path/to/file" // File | 
+  'file': "/path/to/file", // File | 
+  'modelId': "modelId_example" // String | 
 };
-apiInstance.tagLocalImage(modelId, opts, (error, data, response) => {
+apiInstance.tagLocalImage(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -363,8 +363,8 @@ apiInstance.tagLocalImage(modelId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelId** | **String**| Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard. | 
  **file** | **File**|  | [optional] 
+ **modelId** | **String**|  | [optional] 
 
 ### Return type
 

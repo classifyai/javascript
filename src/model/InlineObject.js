@@ -22,10 +22,13 @@ class InlineObject {
     /**
      * Constructs a new <code>InlineObject</code>.
      * @alias module:model/InlineObject
+     * @param imageUrl {String} 
+     * @param tag {String} 
+     * @param modelId {String} 
      */
-    constructor() { 
+    constructor(imageUrl, tag, modelId) { 
         
-        InlineObject.initialize(this);
+        InlineObject.initialize(this, imageUrl, tag, modelId);
     }
 
     /**
@@ -33,7 +36,10 @@ class InlineObject {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, imageUrl, tag, modelId) { 
+        obj['image_url'] = imageUrl;
+        obj['tag'] = tag;
+        obj['model_id'] = modelId;
     }
 
     /**
@@ -47,8 +53,14 @@ class InlineObject {
         if (data) {
             obj = obj || new InlineObject();
 
-            if (data.hasOwnProperty('file')) {
-                obj['file'] = ApiClient.convertToType(data['file'], File);
+            if (data.hasOwnProperty('image_url')) {
+                obj['image_url'] = ApiClient.convertToType(data['image_url'], 'String');
+            }
+            if (data.hasOwnProperty('tag')) {
+                obj['tag'] = ApiClient.convertToType(data['tag'], 'String');
+            }
+            if (data.hasOwnProperty('model_id')) {
+                obj['model_id'] = ApiClient.convertToType(data['model_id'], 'String');
             }
         }
         return obj;
@@ -58,9 +70,19 @@ class InlineObject {
 }
 
 /**
- * @member {File} file
+ * @member {String} image_url
  */
-InlineObject.prototype['file'] = undefined;
+InlineObject.prototype['image_url'] = undefined;
+
+/**
+ * @member {String} tag
+ */
+InlineObject.prototype['tag'] = undefined;
+
+/**
+ * @member {String} model_id
+ */
+InlineObject.prototype['model_id'] = undefined;
 
 
 

@@ -129,7 +129,7 @@ Class | Method | HTTP request | Description
 *Classify.DefaultApi* | [**createNewModel**](docs/DefaultApi.md#createNewModel) | **PUT** /models | Create New Model
 *Classify.DefaultApi* | [**deleteModel**](docs/DefaultApi.md#deleteModel) | **DELETE** /models | Delete Model
 *Classify.DefaultApi* | [**getModelsList**](docs/DefaultApi.md#getModelsList) | **GET** /models | Get Models List
-*Classify.DefaultApi* | [**indexByImageUrl**](docs/DefaultApi.md#indexByImageUrl) | **GET** /index_by_image_url | Index by Using Image URL
+*Classify.DefaultApi* | [**indexByImageUrl**](docs/DefaultApi.md#indexByImageUrl) | **POST** /index_by_image_url | Index by Using Image URL
 *Classify.DefaultApi* | [**indexImage**](docs/DefaultApi.md#indexImage) | **POST** /index_image | Index Local Image
 *Classify.DefaultApi* | [**tagImageByUrl**](docs/DefaultApi.md#tagImageByUrl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 *Classify.DefaultApi* | [**tagLocalImage**](docs/DefaultApi.md#tagLocalImage) | **POST** /predict | Predict by Image
@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 
  - [Classify.InlineObject](docs/InlineObject.md)
  - [Classify.InlineObject1](docs/InlineObject1.md)
+ - [Classify.InlineObject2](docs/InlineObject2.md)
 
 
 ## Documentation for Authorization

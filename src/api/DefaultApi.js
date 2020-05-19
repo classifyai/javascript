@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineObject from '../model/InlineObject';
 
 /**
 * Default service.
@@ -188,35 +189,27 @@ export default class DefaultApi {
      * Callback function to receive the result of the indexByImageUrl operation.
      * @callback module:api/DefaultApi~indexByImageUrlCallback
      * @param {String} error Error message, if any.
-     * @param {String} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Index by Using Image URL
      * Index by Using Image URL
-     * @param {String} modelId Model ID
-     * @param {String} imageUrl Image URL
+     * @param {module:model/InlineObject} inlineObject 
      * @param {module:api/DefaultApi~indexByImageUrlCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link String}
      */
-    indexByImageUrl(modelId, imageUrl, opts, callback) {
+    indexByImageUrl(inlineObject, opts, callback) {
       opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'modelId' is set
-      if (modelId === undefined || modelId === null) {
-        throw new Error("Missing the required parameter 'modelId' when calling indexByImageUrl");
-      }
-      // verify the required parameter 'imageUrl' is set
-      if (imageUrl === undefined || imageUrl === null) {
-        throw new Error("Missing the required parameter 'imageUrl' when calling indexByImageUrl");
+      let postBody = inlineObject;
+      // verify the required parameter 'inlineObject' is set
+      if (inlineObject === undefined || inlineObject === null) {
+        throw new Error("Missing the required parameter 'inlineObject' when calling indexByImageUrl");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'model_id': modelId,
-        'image_url': imageUrl
       };
       let headerParams = {
       };
@@ -224,9 +217,9 @@ export default class DefaultApi {
       };
 
       let authNames = ['x-api-key'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = 'String';
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
       let basePaths = ['https://api.classifyai.com'];
       let basePath = basePaths[0]; // by default use the first one in "servers" defined in OpenAPI
       if (typeof opts['_base_path_index'] !== 'undefined') {
@@ -237,7 +230,7 @@ export default class DefaultApi {
       }
 
       return this.apiClient.callApi(
-        '/index_by_image_url', 'GET',
+        '/index_by_image_url', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, basePath, callback
       );
@@ -254,28 +247,26 @@ export default class DefaultApi {
     /**
      * Index Local Image
      * Index Local Image
-     * @param {String} modelId Model ID
      * @param {Object} opts Optional parameters
+     * @param {String} opts.modelId 
+     * @param {String} opts.tag 
      * @param {File} opts.file 
      * @param {module:api/DefaultApi~indexImageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    indexImage(modelId, opts, callback) {
+    indexImage(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'modelId' is set
-      if (modelId === undefined || modelId === null) {
-        throw new Error("Missing the required parameter 'modelId' when calling indexImage");
-      }
 
       let pathParams = {
       };
       let queryParams = {
-        'model_id': modelId
       };
       let headerParams = {
       };
       let formParams = {
+        'model_id': opts['modelId'],
+        'tag': opts['tag'],
         'file': opts['file']
       };
 
@@ -368,28 +359,24 @@ export default class DefaultApi {
     /**
      * Predict by Image
      * Send a local image to tag
-     * @param {String} modelId Type your trained model id to predict. You get your model's id from Classify Dashboard.
      * @param {Object} opts Optional parameters
      * @param {File} opts.file 
+     * @param {String} opts.modelId 
      * @param {module:api/DefaultApi~tagLocalImageCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    tagLocalImage(modelId, opts, callback) {
+    tagLocalImage(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'modelId' is set
-      if (modelId === undefined || modelId === null) {
-        throw new Error("Missing the required parameter 'modelId' when calling tagLocalImage");
-      }
 
       let pathParams = {
       };
       let queryParams = {
-        'model_id': modelId
       };
       let headerParams = {
       };
       let formParams = {
-        'file': opts['file']
+        'file': opts['file'],
+        'model_id': opts['modelId']
       };
 
       let authNames = ['x-api-key'];

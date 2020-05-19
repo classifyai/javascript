@@ -1,11 +1,10 @@
-# Classify.InlineObject1
+# Classify.InlineObject2
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**modelId** | **String** |  | [optional] 
-**tag** | **String** |  | [optional] 
 **file** | **File** |  | [optional] 
+**modelId** | **String** |  | [optional] 
 
 

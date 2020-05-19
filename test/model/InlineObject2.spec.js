@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Classify.InlineObject();
+    instance = new Classify.InlineObject2();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,22 @@
       object[property] = value;
   }
 
-  describe('InlineObject', function() {
-    it('should create an instance of InlineObject', function() {
-      // uncomment below and update the code to test InlineObject
-      //var instane = new Classify.InlineObject();
-      //expect(instance).to.be.a(Classify.InlineObject);
+  describe('InlineObject2', function() {
+    it('should create an instance of InlineObject2', function() {
+      // uncomment below and update the code to test InlineObject2
+      //var instane = new Classify.InlineObject2();
+      //expect(instance).to.be.a(Classify.InlineObject2);
     });
 
-    it('should have the property imageUrl (base name: "image_url")', function() {
-      // uncomment below and update the code to test the property imageUrl
-      //var instane = new Classify.InlineObject();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property tag (base name: "tag")', function() {
-      // uncomment below and update the code to test the property tag
-      //var instane = new Classify.InlineObject();
+    it('should have the property file (base name: "file")', function() {
+      // uncomment below and update the code to test the property file
+      //var instane = new Classify.InlineObject2();
       //expect(instance).to.be();
     });
 
     it('should have the property modelId (base name: "model_id")', function() {
       // uncomment below and update the code to test the property modelId
-      //var instane = new Classify.InlineObject();
+      //var instane = new Classify.InlineObject2();
       //expect(instance).to.be();
     });
 
