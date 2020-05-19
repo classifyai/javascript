@@ -122,13 +122,15 @@ api.createNewModel(modelName, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.classifyai.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Classify.DefaultApi* | [**createNewModel**](docs/DefaultApi.md#createNewModel) | **PUT** /models | Create New Model
 *Classify.DefaultApi* | [**deleteModel**](docs/DefaultApi.md#deleteModel) | **DELETE** /models | Delete Model
 *Classify.DefaultApi* | [**getModelsList**](docs/DefaultApi.md#getModelsList) | **GET** /models | Get Models List
+*Classify.DefaultApi* | [**indexByImageUrl**](docs/DefaultApi.md#indexByImageUrl) | **GET** /index_by_image_url | Index by Using Image URL
+*Classify.DefaultApi* | [**indexImage**](docs/DefaultApi.md#indexImage) | **POST** /index_image | Index Local Image
 *Classify.DefaultApi* | [**tagImageByUrl**](docs/DefaultApi.md#tagImageByUrl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 *Classify.DefaultApi* | [**tagLocalImage**](docs/DefaultApi.md#tagLocalImage) | **POST** /predict | Predict by Image
 *Classify.DefaultApi* | [**updateModel**](docs/DefaultApi.md#updateModel) | **POST** /models | Update Model
@@ -137,6 +139,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Classify.InlineObject](docs/InlineObject.md)
+ - [Classify.InlineObject1](docs/InlineObject1.md)
 
 
 ## Documentation for Authorization

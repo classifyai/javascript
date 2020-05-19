@@ -32,7 +32,7 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://localhost
+         * @default https://api.classifyai.com
          */
         this.basePath = 'https://api.classifyai.com'.replace(/\/+$/, '');
 
@@ -554,8 +554,8 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "/",
-              'description': "No description provided",
+              'url': "https://api.classifyai.com",
+              'description': "Classify API",
             }
       ];
     }

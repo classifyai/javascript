@@ -14,6 +14,7 @@
 
 import ApiClient from './ApiClient';
 import InlineObject from './model/InlineObject';
+import InlineObject1 from './model/InlineObject1';
 import DefaultApi from './api/DefaultApi';
 
 
@@ -60,6 +61,12 @@ export {
      * @property {module:model/InlineObject}
      */
     InlineObject,
+
+    /**
+     * The InlineObject1 model constructor.
+     * @property {module:model/InlineObject1}
+     */
+    InlineObject1,
 
     /**
     * The DefaultApi service constructor.

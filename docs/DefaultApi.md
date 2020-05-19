@@ -1,12 +1,14 @@
 # Classify.DefaultApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.classifyai.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createNewModel**](DefaultApi.md#createNewModel) | **PUT** /models | Create New Model
 [**deleteModel**](DefaultApi.md#deleteModel) | **DELETE** /models | Delete Model
 [**getModelsList**](DefaultApi.md#getModelsList) | **GET** /models | Get Models List
+[**indexByImageUrl**](DefaultApi.md#indexByImageUrl) | **GET** /index_by_image_url | Index by Using Image URL
+[**indexImage**](DefaultApi.md#indexImage) | **POST** /index_image | Index Local Image
 [**tagImageByUrl**](DefaultApi.md#tagImageByUrl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 [**tagLocalImage**](DefaultApi.md#tagLocalImage) | **POST** /predict | Predict by Image
 [**updateModel**](DefaultApi.md#updateModel) | **POST** /models | Update Model
@@ -117,7 +119,7 @@ null (empty response body)
 
 ## getModelsList
 
-> getModelsList()
+> String getModelsList()
 
 Get Models List
 
@@ -139,7 +141,7 @@ apiInstance.getModelsList((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -150,7 +152,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -159,6 +161,114 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indexByImageUrl
+
+> String indexByImageUrl(modelId, imageUrl)
+
+Index by Using Image URL
+
+Index by Using Image URL
+
+### Example
+
+```javascript
+import Classify from 'classify';
+let defaultClient = Classify.ApiClient.instance;
+// Configure API key authorization: x-api-key
+let x-api-key = defaultClient.authentications['x-api-key'];
+x-api-key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.apiKeyPrefix = 'Token';
+
+let apiInstance = new Classify.DefaultApi();
+let modelId = "modelId_example"; // String | Model ID
+let imageUrl = "imageUrl_example"; // String | Image URL
+apiInstance.indexByImageUrl(modelId, imageUrl, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelId** | **String**| Model ID | 
+ **imageUrl** | **String**| Image URL | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indexImage
+
+> String indexImage(modelId, opts)
+
+Index Local Image
+
+Index Local Image
+
+### Example
+
+```javascript
+import Classify from 'classify';
+let defaultClient = Classify.ApiClient.instance;
+// Configure API key authorization: x-api-key
+let x-api-key = defaultClient.authentications['x-api-key'];
+x-api-key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.apiKeyPrefix = 'Token';
+
+let apiInstance = new Classify.DefaultApi();
+let modelId = "modelId_example"; // String | Model ID
+let opts = {
+  'file': "/path/to/file" // File | 
+};
+apiInstance.indexImage(modelId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelId** | **String**| Model ID | 
+ **file** | **File**|  | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 

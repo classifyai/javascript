@@ -141,7 +141,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getModelsList operation.
      * @callback module:api/DefaultApi~getModelsListCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {String} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -149,6 +149,7 @@ export default class DefaultApi {
      * Get Models List
      * Get the list of of models created 
      * @param {module:api/DefaultApi~getModelsListCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
      */
     getModelsList(opts, callback) {
       opts = opts || {};
@@ -166,7 +167,7 @@ export default class DefaultApi {
       let authNames = ['x-api-key'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = null;
+      let returnType = 'String';
       let basePaths = ['https://api.classifyai.com'];
       let basePath = basePaths[0]; // by default use the first one in "servers" defined in OpenAPI
       if (typeof opts['_base_path_index'] !== 'undefined') {
@@ -178,6 +179,121 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/models', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, basePath, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the indexByImageUrl operation.
+     * @callback module:api/DefaultApi~indexByImageUrlCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Index by Using Image URL
+     * Index by Using Image URL
+     * @param {String} modelId Model ID
+     * @param {String} imageUrl Image URL
+     * @param {module:api/DefaultApi~indexByImageUrlCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    indexByImageUrl(modelId, imageUrl, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'modelId' is set
+      if (modelId === undefined || modelId === null) {
+        throw new Error("Missing the required parameter 'modelId' when calling indexByImageUrl");
+      }
+      // verify the required parameter 'imageUrl' is set
+      if (imageUrl === undefined || imageUrl === null) {
+        throw new Error("Missing the required parameter 'imageUrl' when calling indexByImageUrl");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'model_id': modelId,
+        'image_url': imageUrl
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['x-api-key'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = 'String';
+      let basePaths = ['https://api.classifyai.com'];
+      let basePath = basePaths[0]; // by default use the first one in "servers" defined in OpenAPI
+      if (typeof opts['_base_path_index'] !== 'undefined') {
+        if (opts['_base_path_index']  >= basePaths.length || opts['_base_path_index'] <  0) {
+          throw new Error("Invalid index " + opts['_base_path_index'] + " when selecting the host settings. Must be less than " + basePaths.length);
+        }
+        basePath = basePaths[opts['_base_path_index']];
+      }
+
+      return this.apiClient.callApi(
+        '/index_by_image_url', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, basePath, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the indexImage operation.
+     * @callback module:api/DefaultApi~indexImageCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Index Local Image
+     * Index Local Image
+     * @param {String} modelId Model ID
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.file 
+     * @param {module:api/DefaultApi~indexImageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    indexImage(modelId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'modelId' is set
+      if (modelId === undefined || modelId === null) {
+        throw new Error("Missing the required parameter 'modelId' when calling indexImage");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'model_id': modelId
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'file': opts['file']
+      };
+
+      let authNames = ['x-api-key'];
+      let contentTypes = ['multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = 'String';
+      let basePaths = ['https://api.classifyai.com'];
+      let basePath = basePaths[0]; // by default use the first one in "servers" defined in OpenAPI
+      if (typeof opts['_base_path_index'] !== 'undefined') {
+        if (opts['_base_path_index']  >= basePaths.length || opts['_base_path_index'] <  0) {
+          throw new Error("Invalid index " + opts['_base_path_index'] + " when selecting the host settings. Must be less than " + basePaths.length);
+        }
+        basePath = basePaths[opts['_base_path_index']];
+      }
+
+      return this.apiClient.callApi(
+        '/index_image', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, basePath, callback
       );

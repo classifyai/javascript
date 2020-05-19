@@ -78,6 +78,26 @@
         done();
       });
     });
+    describe('indexByImageUrl', function() {
+      it('should call indexByImageUrl successfully', function(done) {
+        //uncomment below and update the code to test indexByImageUrl
+        //instance.indexByImageUrl(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('indexImage', function() {
+      it('should call indexImage successfully', function(done) {
+        //uncomment below and update the code to test indexImage
+        //instance.indexImage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('tagImageByUrl', function() {
       it('should call tagImageByUrl successfully', function(done) {
         //uncomment below and update the code to test tagImageByUrl
